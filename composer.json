@@ -1,0 +1,23 @@
+{
+    "name": "her-cat/zhipin-scan-login",
+    "description": "🔓 PHP 实现 Boss 直聘扫码登录",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "her-cat",
+            "email": "hxhsoft@foxmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/container": "^5.4",
+        "monolog/monolog": "^1.22",
+        "illuminate/config": "^5.4",
+        "vlucas/phpdotenv": "^3.3",
+        "symfony/debug": "^4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "HerCat\\ZhipinScanLogin\\": "src"
+        }
+    }
+}
