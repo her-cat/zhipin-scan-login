@@ -54,7 +54,7 @@ class Server
         $url = 'https://login.zhipin.com/wapi/zppassport/captcha/randkey';
 
         $response = $this->app->http->post($url, [
-            'form_params' => ['pk' => 'cpc_user_sign_up']
+            'form_params' => ['pk' => 'cpc_user_sign_up'],
         ]);
 
         if (!isset($response['zpData']['qrId'])) {
@@ -80,7 +80,7 @@ class Server
     {
         $qrUuid = !is_null($qrUuid) ?: $this->app->config['server.qr_uuid'];
 
-        $url = "https://login.zhipin.com/wapi/zpweixin/qrcode/getqrcode?";
+        $url = 'https://login.zhipin.com/wapi/zpweixin/qrcode/getqrcode?';
 
         $query = http_build_query([
             'content' => $qrUuid,
@@ -119,19 +119,21 @@ class Server
 
             $response = $this->app->http->get($url.$query);
 
-            if (isset($response['code']) && $response['code'] === 17) {
+            if (isset($response['code']) && 17 === $response['code']) {
                 $this->app->console->log($response['message'], Console::ERROR);
+
                 break;
             }
 
             if (isset($response['allweb'])) {
                 $this->app->console->log('scan qrcode success.');
+
                 return;
-            };
+            }
 
             $this->app->console->log('unscanned QRcode.');
 
-            $retryTime--;
+            --$retryTime;
         }
 
         throw new LoginFailedException('login failed.');

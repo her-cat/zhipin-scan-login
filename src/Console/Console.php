@@ -1,7 +1,15 @@
 <?php
 
-namespace HerCat\ZhipinScanLogin\Console;
+/*
+ * This file is part of the her-cat/zhipin-scan-login.
+ *
+ * (c) her-cat <hxhsoft@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace HerCat\ZhipinScanLogin\Console;
 
 use Carbon\Carbon;
 use HerCat\ZhipinScanLogin\Application;
@@ -15,12 +23,16 @@ class Console
     protected $app;
 
     const INFO = 'INFO';
+
     const WARRING = 'WARRING';
+
     const ERROR = 'ERROR';
+
     const MESSAGE = 'MESSAGE';
 
     /**
      * Console constructor.
+     *
      * @param Application $app
      */
     public function __construct(Application $app)
@@ -35,7 +47,7 @@ class Console
      */
     public static function isWin()
     {
-        return strtoupper(substr(PHP_OS, 0, 3)) === 'WIN';
+        return 'WIN' === strtoupper(substr(PHP_OS, 0, 3));
     }
 
     /**
@@ -43,7 +55,7 @@ class Console
      *
      * @param $message
      * @param string $level
-     * @param bool $log
+     * @param bool   $log
      */
     public function log($message, $level = self::INFO, $log = false)
     {
