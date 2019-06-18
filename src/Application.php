@@ -24,7 +24,7 @@ use Illuminate\Container\Container;
  * @property \HerCat\ZhipinScanLogin\Support\Log $log
  * @property \HerCat\ZhipinScanLogin\Observers\Observer $observer
  * @property \HerCat\ZhipinScanLogin\Observers\ExitObserver $exitObserver
- * @property \HerCat\ZhipinScanLogin\ExceptionHandler $exception
+ * @property \HerCat\ZhipinScanLogin\Core\ExceptionHandler $exception
  */
 class Application extends Container
 {
