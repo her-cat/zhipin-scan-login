@@ -12,7 +12,7 @@
 namespace HerCat\ZhipinScanLogin\ServiceProviders;
 
 use HerCat\ZhipinScanLogin\Application;
-use HerCat\ZhipinScanLogin\ExceptionHandler;
+use HerCat\ZhipinScanLogin\Core\ExceptionHandler;
 
 class ExceptionServiceProvider implements ServiceProviderInterface
 {

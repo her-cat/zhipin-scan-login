@@ -12,6 +12,7 @@
 namespace HerCat\ZhipinScanLogin;
 
 use Dotenv\Dotenv;
+use HerCat\ZhipinScanLogin\Core\Kernel;
 use HerCat\ZhipinScanLogin\ServiceProviders\ServiceProviderInterface;
 use Illuminate\Config\Repository;
 use Illuminate\Container\Container;

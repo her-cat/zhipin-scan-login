@@ -9,7 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace HerCat\ZhipinScanLogin;
+namespace HerCat\ZhipinScanLogin\Core;
+
+use HerCat\ZhipinScanLogin\Application;
 
 /**
  * Class Kernel.
