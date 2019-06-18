@@ -20,6 +20,9 @@
         "symfony/console": "^4.3"
     },
     "autoload": {
+        "files": [
+            "src/Support/helpers.php"
+        ],
         "psr-4": {
             "HerCat\\ZhipinScanLogin\\": "src"
         }
