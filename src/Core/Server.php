@@ -104,10 +104,10 @@ class Server
      */
     public function waitForLogin()
     {
-        $retryTime = 1;
+        $retryTime = $this->getLoginRetryTime();
 
         $this->app->console->log('please scan the qrCode with Boss zhipin App.');
-        $this->app->console->log($this->getQrCodeImageUrl());
+        $this->app->console->log('qrCode url:'.$this->getQrCodeImageUrl());
 
         while ($retryTime > 0) {
             $url = 'https://login.zhipin.com/scan?';
@@ -121,13 +121,11 @@ class Server
 
             if (isset($response['code']) && 17 === $response['code']) {
                 $this->app->console->log($response['message'], Console::ERROR);
-
                 break;
             }
 
             if (isset($response['allweb'])) {
                 $this->app->console->log('scan qrCode success.');
-
                 return;
             }
 
@@ -160,5 +158,10 @@ class Server
         $this->app->loginSuccessObserver->trigger($user);
 
         return $user;
+    }
+
+    public function getLoginRetryTime()
+    {
+        return $this->app->config['login_retry_time'] ?? 10;
     }
 }
