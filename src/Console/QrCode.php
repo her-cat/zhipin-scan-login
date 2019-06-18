@@ -1,5 +1,14 @@
 <?php
 
+/*
+ * This file is part of the her-cat/zhipin-scan-login.
+ *
+ * (c) her-cat <hxhsoft@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
 namespace HerCat\ZhipinScanLogin\Console;
 
 use PHPQRCode\QRcode as QrCodeConsole;
@@ -25,7 +34,7 @@ class QrCode extends Console
 
         foreach ($text as $line) {
             $output->write($pxMap[0]);
-            for ($i = 0; $i < $length; $i++) {
+            for ($i = 0; $i < $length; ++$i) {
                 $type = substr($line, $i, 1);
                 $output->write($pxMap[$type]);
             }
@@ -40,7 +49,7 @@ class QrCode extends Console
     {
         $block = $this->getWhiteBlock();
 
-        for ($i = 0; $i < $length + 2; $i++) {
+        for ($i = 0; $i < $length + 2; ++$i) {
             $output->write($block);
         }
 
