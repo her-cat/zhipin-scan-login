@@ -11,7 +11,6 @@
 
 require_once './vendor/autoload.php';
 
-
 use HerCat\ZhipinScanLogin\Application;
 
 $app = new Application();
@@ -25,7 +24,7 @@ $app->observer->setExitObserver(function () use ($app) {
 });
 
 $app->observer->setLoginSuccessObserver(function ($user) use ($app) {
-   $app->console->log('name:' . $user['name']);
+    $app->console->log('name:'.$user['name']);
 });
 
 $app->server->run();

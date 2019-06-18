@@ -16,7 +16,6 @@ use HerCat\ZhipinScanLogin\Observers\ExitObserver;
 use HerCat\ZhipinScanLogin\Observers\LoginSuccessObserver;
 use HerCat\ZhipinScanLogin\Observers\Observer;
 use HerCat\ZhipinScanLogin\Observers\QrCodeObserver;
-use HerCat\ZhipinScanLogin\Observers\QrUuidObserver;
 
 class ObserverServiceProvider implements ServiceProviderInterface
 {
