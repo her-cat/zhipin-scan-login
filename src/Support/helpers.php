@@ -1,12 +1,21 @@
 <?php
 
-use \HerCat\ZhipinScanLogin\Application;
+/*
+ * This file is part of the her-cat/zhipin-scan-login.
+ *
+ * (c) her-cat <hxhsoft@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
+
+use HerCat\ZhipinScanLogin\Application;
 
 if (!function_exists('app')) {
     /**
      * Get the available container instance.
      *
-     * @param null $abstract
+     * @param null  $abstract
      * @param array $parameters
      *
      * @return mixed
@@ -18,7 +27,7 @@ if (!function_exists('app')) {
         }
 
         return empty($parameters) ?
-            Application::getInstance()->make($abstract):
+            Application::getInstance()->make($abstract) :
             Application::getInstance()->makeWith($abstract, $parameters);
     }
 }
