@@ -13,9 +13,9 @@ namespace HerCat\ZhipinScanLogin\Core;
 
 use Closure;
 use Exception;
-use HerCat\Exceptions\InvalidArgumentException;
-use HerCat\Exceptions\LoginFailedException;
 use HerCat\ZhipinScanLogin\Application;
+use HerCat\ZhipinScanLogin\Exceptions\InvalidArgumentException;
+use HerCat\ZhipinScanLogin\Exceptions\LoginFailedException;
 use Symfony\Component\Debug\Exception\FatalErrorException;
 
 class ExceptionHandler
@@ -53,7 +53,7 @@ class ExceptionHandler
      *
      * @throws Exception
      */
-    public function report(Exception $e)
+    public function report(\Throwable $e)
     {
         if ($this->handler) {
             call_user_func_array($this->handler, [$e]);

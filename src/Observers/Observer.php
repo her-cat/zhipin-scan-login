@@ -11,14 +11,16 @@
 
 namespace HerCat\ZhipinScanLogin\Observers;
 
-use HerCat\Exceptions\InvalidArgumentException;
-use HerCat\Exceptions\ObserverNotFoundException;
+use HerCat\ZhipinScanLogin\Exceptions\InvalidArgumentException;
+use HerCat\ZhipinScanLogin\Exceptions\ObserverNotFoundException;
 use HerCat\ZhipinScanLogin\Application;
 
 /**
  * Class Observer.
  *
  * @method setExitObserver($callback)
+ * @method setQrCodeObserver($callback)
+ * @method setLoginSuccessObserver($callback)
  */
 class Observer
 {
