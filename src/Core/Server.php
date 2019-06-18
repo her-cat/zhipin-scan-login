@@ -121,11 +121,13 @@ class Server
 
             if (isset($response['code']) && 17 === $response['code']) {
                 $this->app->console->log($response['message'], Console::ERROR);
+
                 break;
             }
 
             if (isset($response['allweb'])) {
                 $this->app->console->log('scan qrCode success.');
+
                 return;
             }
 
