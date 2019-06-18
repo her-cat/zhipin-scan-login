@@ -2,6 +2,9 @@
 
 <p align="center"> 🔓 PHP 实现 Boss 直聘扫码登录.</p>
 
+[![StyleCI build status](https://github.styleci.io/repos/192315655/shield)](https://github.styleci.io/repos/192315655)
+![GitHub](https://img.shields.io/github/license/her-cat/zhipin-scan-login.svg)
+
 
 ## Installing
 
