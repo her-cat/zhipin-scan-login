@@ -1,7 +1,15 @@
 <?php
 
-namespace HerCat\ZhipinScanLogin\Support;
+/*
+ * This file is part of the her-cat/zhipin-scan-login.
+ *
+ * (c) her-cat <hxhsoft@foxmail.com>
+ *
+ * This source file is subject to the MIT license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace HerCat\ZhipinScanLogin\Support;
 
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Cookie\FileCookieJar;
@@ -26,6 +34,7 @@ class Http
 
     /**
      * Http constructor.
+     *
      * @param Application $app
      */
     public function __construct(Application $app)
@@ -58,7 +67,7 @@ class Http
     /**
      * @param $url
      * @param array $options
-     * @param bool $format
+     * @param bool  $format
      *
      * @return bool|string
      */
@@ -70,7 +79,7 @@ class Http
     /**
      * @param $url
      * @param array $query
-     * @param bool $format
+     * @param bool  $format
      *
      * @return bool|string
      */
@@ -84,9 +93,9 @@ class Http
     /**
      * @param $url
      * @param string $method
-     * @param array $options
-     * @param bool $format
-     * @param bool $retry
+     * @param array  $options
+     * @param bool   $format
+     * @param bool   $retry
      *
      * @return bool|mixed|string
      */
