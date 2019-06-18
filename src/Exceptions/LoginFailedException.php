@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace HerCat\Exceptions;
+namespace HerCat\ZhipinScanLogin\Exceptions;
 
 class LoginFailedException extends Exception
 {

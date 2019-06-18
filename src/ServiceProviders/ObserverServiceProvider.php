@@ -13,7 +13,10 @@ namespace HerCat\ZhipinScanLogin\ServiceProviders;
 
 use HerCat\ZhipinScanLogin\Application;
 use HerCat\ZhipinScanLogin\Observers\ExitObserver;
+use HerCat\ZhipinScanLogin\Observers\LoginSuccessObserver;
 use HerCat\ZhipinScanLogin\Observers\Observer;
+use HerCat\ZhipinScanLogin\Observers\QrCodeObserver;
+use HerCat\ZhipinScanLogin\Observers\QrUuidObserver;
 
 class ObserverServiceProvider implements ServiceProviderInterface
 {
@@ -25,6 +28,14 @@ class ObserverServiceProvider implements ServiceProviderInterface
 
         $app->singleton('exitObserver', function () use ($app) {
             return new ExitObserver($app);
+        });
+
+        $app->singleton('qrCodeObserver', function () use ($app) {
+            return new QrCodeObserver($app);
+        });
+
+        $app->singleton('loginSuccessObserver', function () use ($app) {
+            return new LoginSuccessObserver($app);
         });
     }
 }

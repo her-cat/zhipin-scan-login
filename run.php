@@ -11,6 +11,21 @@
 
 require_once './vendor/autoload.php';
 
+
 use HerCat\ZhipinScanLogin\Application;
 
 $app = new Application();
+
+$app->observer->setQrCodeObserver(function ($qrUuid) use ($app) {
+    $app->console->log('qr_uuid: '.$qrUuid);
+});
+
+$app->observer->setExitObserver(function () use ($app) {
+    $app->console->log('Bye bye.');
+});
+
+$app->observer->setLoginSuccessObserver(function ($user) use ($app) {
+   $app->console->log('name:' . $user['name']);
+});
+
+$app->server->run();
