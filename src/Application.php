@@ -22,6 +22,7 @@ use Illuminate\Container\Container;
  *
  * @property \Illuminate\Config\Repository $config
  * @property \HerCat\ZhipinScanLogin\Support\Log $log
+ * @property \HerCat\ZhipinScanLogin\Support\Http $http
  * @property \HerCat\ZhipinScanLogin\Observers\Observer $observer
  * @property \HerCat\ZhipinScanLogin\Observers\ExitObserver $exitObserver
  * @property \HerCat\ZhipinScanLogin\Core\ExceptionHandler $exception
@@ -35,6 +36,7 @@ class Application extends Container
      */
     protected $providers = [
         ServiceProviders\LogServiceProvider::class,
+        ServiceProviders\HttpServiceProvider::class,
         ServiceProviders\ObserverServiceProvider::class,
         ServiceProviders\ExceptionServiceProvider::class,
     ];
