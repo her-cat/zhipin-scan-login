@@ -126,12 +126,12 @@ class Server
             }
 
             if (isset($response['allweb'])) {
-                $this->app->console->log('scan qrcode success.');
+                $this->app->console->log('scan qrCode success.');
 
                 return;
             }
 
-            $this->app->console->log('unscanned QRcode.');
+            $this->app->console->log('unscanned qrCode.');
 
             --$retryTime;
         }
