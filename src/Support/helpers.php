@@ -16,10 +16,11 @@ if (!function_exists('app')) {
     /**
      * Get the available container instance.
      *
-     * @param null $abstract
+     * @param null  $abstract
      * @param array $parameters
      *
      * @return mixed
+     *
      * @throws BindingResolutionException
      */
     function app($abstract = null, array $parameters = [])
