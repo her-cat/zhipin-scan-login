@@ -48,8 +48,8 @@ class Observer
     {
         $args = func_get_args();
 
-        if (is_callable($this->getCallaback())) {
-            call_user_func_array($this->getCallaback(), $args);
+        if (is_callable($this->getCallback())) {
+            call_user_func_array($this->getCallback(), $args);
         }
     }
 
@@ -74,7 +74,7 @@ class Observer
      *
      * @return mixed
      */
-    protected function getCallaback()
+    protected function getCallback()
     {
         return $this->callback;
     }
