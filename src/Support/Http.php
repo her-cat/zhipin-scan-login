@@ -13,6 +13,7 @@ namespace HerCat\ZhipinScanLogin\Support;
 
 use GuzzleHttp\Client as HttpClient;
 use GuzzleHttp\Cookie\FileCookieJar;
+use GuzzleHttp\Exception\GuzzleException;
 use HerCat\ZhipinScanLogin\Application;
 
 class Http
@@ -93,11 +94,13 @@ class Http
     /**
      * @param $url
      * @param string $method
-     * @param array  $options
-     * @param bool   $format
-     * @param bool   $retry
+     * @param array $options
+     * @param bool $format
+     * @param bool $retry
      *
      * @return bool|mixed|string
+     *
+     * @throws GuzzleException
      */
     public function request($url, $method = 'GET', $options = [], $format = true, $retry = false)
     {
