@@ -94,9 +94,9 @@ class Http
     /**
      * @param $url
      * @param string $method
-     * @param array $options
-     * @param bool $format
-     * @param bool $retry
+     * @param array  $options
+     * @param bool   $format
+     * @param bool   $retry
      *
      * @return bool|mixed|string
      *
