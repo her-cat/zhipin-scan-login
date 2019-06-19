@@ -15,15 +15,15 @@ use HerCat\ZhipinScanLogin\Application;
 
 $app = new Application();
 
-$app->observer->setQrCodeObserver(function ($qrUuid) use ($app) {
+$app->observer->setQrCodeObserver(function ($qrUuid) {
     app('console')->log('qr_uuid: '.$qrUuid);
 });
 
-$app->observer->setExitObserver(function () use ($app) {
+$app->observer->setExitObserver(function () {
     app('console')->log('Bye bye.');
 });
 
-$app->observer->setLoginSuccessObserver(function ($user) use ($app) {
+$app->observer->setLoginSuccessObserver(function ($user) {
     app('console')->log('name:'.$user['name']);
 });
 
