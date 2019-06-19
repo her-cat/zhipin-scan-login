@@ -11,6 +11,7 @@
 
 namespace HerCat\ZhipinScanLogin\Core;
 
+use Carbon\Carbon;
 use HerCat\ZhipinScanLogin\Application;
 
 /**
@@ -40,6 +41,7 @@ class Kernel
         $this->bootstrapException();
         $this->prepareSession();
         $this->initializeConfig();
+        $this->initializeTimezone();
     }
 
     /**
@@ -90,6 +92,8 @@ class Kernel
 
     private function initializeConfig()
     {
+        $this->app->config['timezone'] = $this->app->config['timezone'] ?? 'PRC';
+
         $this->app->config['storage_path'] = $this->app->config['path'].'/storage';
 
         if (!is_dir($this->app->config['storage_path'].'/cookies')) {
@@ -99,5 +103,10 @@ class Kernel
         $file = sprintf('%s/cookies/%s', $this->app->config['storage_path'], $this->app->config['session']);
 
         $this->app->config['cookie_file'] = $file;
+    }
+
+    private function initializeTimezone()
+    {
+        date_default_timezone_set($this->app->config['timezone']);
     }
 }
