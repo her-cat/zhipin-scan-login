@@ -97,6 +97,8 @@ class ExceptionHandler
      * Handle an uncaught exception from application.
      *
      * @param \Throwable $e
+     *
+     * @throws \Throwable
      */
     public function handleException(\Throwable $e)
     {
