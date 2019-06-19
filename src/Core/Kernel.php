@@ -11,7 +11,6 @@
 
 namespace HerCat\ZhipinScanLogin\Core;
 
-use Carbon\Carbon;
 use HerCat\ZhipinScanLogin\Application;
 
 /**
