@@ -16,15 +16,18 @@ use HerCat\ZhipinScanLogin\Application;
 $app = new Application();
 
 $app->observer->setQrCodeObserver(function ($qrUuid) {
+    // 获取到二维码 uuid 后
     app('console')->log('qr_uuid: '.$qrUuid);
 });
 
-$app->observer->setExitObserver(function () {
-    app('console')->log('Bye bye.');
+$app->observer->setLoginSuccessObserver(function ($user) {
+    // 扫码登录成功后 print_r($user)
+    app('console')->log('name:'.$user['name']);
 });
 
-$app->observer->setLoginSuccessObserver(function ($user) {
-    app('console')->log('name:'.$user['name']);
+$app->observer->setExitObserver(function () {
+    // 程序结束运行前
+    app('console')->log('Bye bye.');
 });
 
 $app->server->run();
