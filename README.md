@@ -43,10 +43,6 @@ $app->observer->setExitObserver(function () {
 $app->server->run();
 ```
 
-## 运行截图
-
-
-
 ## License
 
 MIT
