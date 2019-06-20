@@ -71,6 +71,8 @@ class Http
      * @param bool  $format
      *
      * @return bool|string
+     *
+     * @throws GuzzleException
      */
     public function get($url, array $options = [], $format = true)
     {
@@ -83,6 +85,8 @@ class Http
      * @param bool  $format
      *
      * @return bool|string
+     *
+     * @throws GuzzleException
      */
     public function post($url, array $query = [], $format = true)
     {

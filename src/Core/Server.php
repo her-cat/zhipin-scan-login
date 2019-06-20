@@ -11,6 +11,7 @@
 
 namespace HerCat\ZhipinScanLogin\Core;
 
+use GuzzleHttp\Exception\GuzzleException;
 use HerCat\ZhipinScanLogin\Application;
 use HerCat\ZhipinScanLogin\Console\Console;
 use HerCat\ZhipinScanLogin\Exceptions\FetchQrUuidException;
@@ -48,6 +49,7 @@ class Server
      * @return mixed
      *
      * @throws FetchQrUuidException
+     * @throws GuzzleException
      */
     public function getQrUuid()
     {
@@ -100,6 +102,7 @@ class Server
 
     /**
      * @throws LoginFailedException
+     * @throws GuzzleException
      */
     public function waitForLogin()
     {
@@ -145,6 +148,7 @@ class Server
      * @return array
      *
      * @throws FetchUserException
+     * @throws GuzzleException
      */
     public function getUser()
     {
