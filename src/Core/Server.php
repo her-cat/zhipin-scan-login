@@ -54,14 +54,13 @@ class Server
         $url = 'https://login.zhipin.com/wapi/zppassport/captcha/randkey';
 
         $response = $this->app->http->post($url, [
-            'form_params' => ['pk' => 'cpc_user_sign_up'],
+            'pk' => 'cpc_user_sign_up',
         ]);
 
-        if (!isset($response['zpData']['qrId'])) {
+        $qrUuid = $response['zpData']['qrId'] ?? false;
+        if (!$qrUuid) {
             throw new FetchQrUuidException('fetch QR uuid faild.');
         }
-
-        $qrUuid = $response['zpData']['qrId'];
 
         $this->app->qrCodeObserver->trigger($qrUuid);
 
@@ -119,7 +118,8 @@ class Server
 
             $response = $this->app->http->get($url.$query);
 
-            if (isset($response['code']) && 17 === $response['code']) {
+            $code = $response['code'] ?? -1;
+            if (17 === $code) {
                 $this->app->console->log($response['message'], Console::ERROR);
 
                 break;
