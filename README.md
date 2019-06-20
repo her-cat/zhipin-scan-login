@@ -6,25 +6,46 @@
 ![GitHub](https://img.shields.io/github/license/her-cat/zhipin-scan-login.svg)
 
 
-## Installing
+## 安装
 
 ```shell
-$ composer require hercat/zhipin-scan-login -vvv
+$ git clone https://github.com/her-cat/zhipin-scan-login.git
+$ cd zhipin-scan-login
+$ composer install
 ```
 
-## Usage
+## 使用
 
-TODO
+运行 `php run.php` 查看效果。 
 
-## Contributing
+run.php：
 
-You can contribute in one of three ways:
+```php
+use HerCat\ZhipinScanLogin\Application;
 
-1. File bug reports using the [issue tracker](https://github.com/hercat//zhipin-scan-login/issues).
-2. Answer questions or fix bugs on the [issue tracker](https://github.com/hercat//zhipin-scan-login/issues).
-3. Contribute new features or update the wiki.
+$app = new Application();
 
-_The code contribution process is not very formal. You just need to make sure that you follow the PSR-0, PSR-1, and PSR-2 coding guidelines. Any new code contributions must be accompanied by unit tests where applicable._
+$app->observer->setQrCodeObserver(function ($qrUuid) {
+    // 获取到二维码 uuid 后
+    app('console')->log('qr_uuid: '.$qrUuid);
+});
+
+$app->observer->setLoginSuccessObserver(function ($user) {
+    // 扫码登录成功后 print_r($user)
+    app('console')->log('name:'.$user['name']);
+});
+
+$app->observer->setExitObserver(function () {
+    // 程序结束运行前
+    app('console')->log('Bye bye.');
+});
+
+$app->server->run();
+```
+
+## 运行截图
+
+
 
 ## License
 
